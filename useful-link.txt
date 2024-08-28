@@ -1,0 +1,75 @@
+20. Giới thiệu về HTML
+https://drive.google.com/file/d/1Bw0IHIzt7tC7voBCiGM2-8oFH33S_uJo/view?usp=sharing
+
+21. HTTP Messages
+https://drive.google.com/file/d/1rKZ1g5YV4K_RBQqX47_5Nwh8wKsq9AKm/view?usp=sharing
+
+22. Đưa website lên server
+https://drive.google.com/file/d/1ESqgAvUhYr4oEUJeqYVLtrl5UV7OJevp/view?usp=sharing
+
+23. Giới thiệu CSS - Link YouTube (6h)
+https://www.youtube.com/watch?v=1Rs2ND1ryYc
+
+24. Ví dụ về Web Design: Tạo Dashboard với HTML và CSS - Link YouTube
+https://www.youtube.com/watch?v=M-pil5oHw0w
+
+27. Truyền gửi data giữa website và database
+   a. Giới thiệu + ví dụ
+       https://drive.google.com/file/d/1Zfsne7w5y5RCrGKYnQux2yTaGfbBIlor/view?usp=sharing
+   b. Tạo website và Database cho ví dụ
+       https://drive.google.com/file/d/1CXd1wZ2NJC8tGfsiO8alH0C_DQSdgdJK/view?usp=sharing
+   c.  Gửi data từ website về database
+       https://drive.google.com/file/d/1a0QxpHWDx928aT3FiKgcxOxjQnjYXDS5/view?usp=sharing
+   d. Gửi data từ database lên website
+       https://drive.google.com/file/d/16056CVkQTOhU6DVDFz-Ju4QDYHHbYEAN/view?usp=sharing
+   e. Nhúng code PHP vào HTML
+       https://drive.google.com/file/d/1VHeOnz-S7nxgtJ-4vAoMzsM2o52WJ1yE/view?usp=sharing
+       
+28. Điều khiển led qua webserver
+a. giới thiệu
+https://drive.google.com/file/d/1WcrXHf_vF4zBeGT7SCPVzlWgewXanBV5/view?usp=sharing
+b. Tạo website và database
+https://drive.google.com/file/d/16CBjeDnbtKoXLarBhbvLJcdSdUTraJWk/view?usp=sharing
+c. Code PHP cho giao tiếp giữa server và database
+https://drive.google.com/file/d/1H0g975UeNy0MT49m6_56vNMC8T_AgW0O/view?usp=sharing
+https://drive.google.com/file/d/17SrmIKqihIahlHx12mev8Ble9rhVgbBo/view?usp=sharing
+d. Truy xuất dữ liệu database bằng code C
+https://drive.google.com/file/d/1Df6b9HaIeMMx8HrAmHgdgruCg-iPYkFj/view?usp=sharing
+
+30. Giới thiệu Javascript
+https://drive.google.com/file/d/150dtRAAzxbZLe0ndlQD38rlguqpoR27F/view?usp=sharing
+31. Ví dụ về javascript
+a. https://drive.google.com/file/d/12DPtcO0C0dDq1-8IU-9DuIufCuvUajAF/view?usp=sharing
+b. https://drive.google.com/file/d/1uLMDdCvx-i81UXOnvMGzCPMUqYY_DDq0/view?usp=sharing
+32. Link youtube về javascript - tiếng việt
+https://www.youtube.com/watch?v=0SJE9dYdpps&list=PL_-VfJajZj0VgpFpEVFzS5Z-lkXtBe-x5
+
+33. Vẽ đồ thị với Chart.js
+a.   https://drive.google.com/file/d/19-1v7DGExaayn3zYc8h2LhcePgTJevQa/view?usp=sharing
+b.   https://drive.google.com/file/d/1MzDUGQ8sK_nrvFlYYdYOaJnwbK0nh10O/view?usp=sharing
+c.   https://drive.google.com/file/d/1y8_7VVgkLroo937-KZ-TaUrOY7wDbwO2/view?usp=sharing
+
+
+MQTT Protocol
+a. Giới thiệu về MQTT 
+https://drive.google.com/file/d/12FVcApQx1MjFlgwMYOm6_GcQF6eX7_Q3/view?usp=sharing
+b. Demo về MQTT
+https://drive.google.com/file/d/1p_HROtsc3Vltaz89Ih1dYBSFAbg_HMim/view?usp=sharing
+
+
+Cách kết nối MySQL trên PC từ raspberry
+https://webdock.io/en/docs/how-guides/database-guides/how-enable-remote-access-your-mariadbmysql-database
+Bước 1: Trên PC mở terminal, nhập:
+  sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+Bước 2: Thay đổi dòng "bind-address = 127.0.0.1" thành "bind-address = 0.0.0.0", sau đó lưu lại file.
+Bước 3: Trên terminal, nhập sudo mysql -u root -p để vào mariaDB. Trong mariaDB nhập dòng code sau:
+     GRANT ALL ON *.* to 'any_account'@'raspberry_ip' IDENTIFIED BY 'password' WITH GRANT OPTION;
+     (vd: GRANT ALL ON *.* to 'pi_sql'@'192.168.0.8' IDENTIFIED BY '123456' WITH GRANT OPTION;)
+     Flush Privileges;
+Thoát ra terminal và restart mariaDB với câu lệnh: sudo systemctl restart mariadb
+Test kết nối: (vd địa chỉ IP của PC là 192.168.0.4)
+  -  Trên raspberry terminal: nhập mysql -u pi_sql -p -h 192.168.0.4 để đăng nhập mysql trên PC
+ -   Trong code C chạy trên rasp: sửa lại code mẫu như sau để kết nối
+              char *server = "192.168.0.4";
+              char *user = "pi_sql";
+              char *password = "123456";
